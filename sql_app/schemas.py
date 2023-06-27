@@ -4,11 +4,12 @@ class MarcacoesBase(BaseModel):
     material: str
     descricao: str
     data_inicio: str
-    data_final: str
+    data_final: str | None = None
 
 
 class MarcacoesCreate(MarcacoesBase):
-    pass
+    id_lab: int
+    id_user: int
 
 
 class Marcacoes(MarcacoesBase):

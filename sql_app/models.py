@@ -40,4 +40,4 @@ class Marcacoes(Base):
     data_inicio = Column(DateTime, nullable=False)
     data_final = Column(DateTime, nullable=False)
 
-    labs = relationship("Laboratorio", back_populates="aulas")
+    labs = relationship("Lab", back_populates="aulas")
