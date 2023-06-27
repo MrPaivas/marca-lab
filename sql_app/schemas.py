@@ -32,3 +32,22 @@ class Lab(LabBase):
 
     class Config:
         orm_mode = True
+
+
+class UsuariosBase(BaseModel):
+    nome: str
+    email: str
+    telefone: str
+    funcao: str
+    tipo: str
+
+
+class UsuariosCreate(UsuariosBase):
+    senha: str
+
+
+class Usuarios(UsuariosBase):
+    id: int
+
+    class Config:
+        orm_mode = True

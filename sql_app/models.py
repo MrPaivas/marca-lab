@@ -16,7 +16,7 @@ class Usuarios(Base):
     senha = Column(String, nullable=True)
 
 
-class Laboratorio(Base):
+class Lab(Base):
     __tablename__ = 'laboratorio'
     
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -26,7 +26,7 @@ class Laboratorio(Base):
     descricao = Column(String)
     id_responsavel = Column(Integer, ForeignKey("usuarios.id"))
 
-    marcados = relationship("Marcacoes", back_populates="labs")
+    aulas = relationship("Marcacoes", back_populates="labs")
 
 
 class Marcacoes(Base):
@@ -40,4 +40,4 @@ class Marcacoes(Base):
     data_inicio = Column(DateTime, nullable=False)
     data_final = Column(DateTime, nullable=False)
 
-    labs = relationship("Laboratorio", back_populates="marcados")
+    labs = relationship("Laboratorio", back_populates="aulas")
