@@ -6,9 +6,18 @@ import models
 import schemas
 
 
-def get_user(db: Session, user_id: int):
+def get_user_by_id(db: Session, user_id: int):
     busca = db.query(models.Usuarios).filter(models.Usuarios.id == user_id).first()
     return busca
+
+
+def get_user_by_email(db: Session, user_mail: str):
+    busca = db.query(models.Usuarios).filter(models.Usuarios.email == user_mail).first()
+    return busca
+
+
+def get_users(db: Session):
+    return db.query(models.Usuarios).all()
 
 
 def get_lab_by_id(db: Session, lab_id: int):
@@ -18,11 +27,6 @@ def get_lab_by_id(db: Session, lab_id: int):
 
 def get_labs(db: Session):
     busca = db.query(models.Lab).all()
-    return busca
-
-
-def get_users(db: Session):
-    busca = db.query(models.Usuarios).all()
     return busca
 
 

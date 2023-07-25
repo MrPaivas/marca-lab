@@ -38,6 +38,6 @@ class Marcacoes(Base):
     material = Column(String, nullable=True)
     descricao = Column(String, nullable=True)
     data_inicio = Column(DateTime, nullable=False)
-    data_final = Column(DateTime, nullable=False)
+    data_final = Column(DateTime)
 
     labs = relationship("Lab", back_populates="aulas")
