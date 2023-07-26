@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+
 class MarcacoesBase(BaseModel):
     material: str
     descricao: str
@@ -29,7 +30,6 @@ class LabCreate(LabBase):
 
 class Lab(LabBase):
     id: int
-    aulas: list[Marcacoes] = []
 
     class Config:
         orm_mode = True

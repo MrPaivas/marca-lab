@@ -1,5 +1,4 @@
 from sqlalchemy import Integer, String, ForeignKey, Column, DateTime
-from sqlalchemy.orm import relationship
 
 from database import Base
 
@@ -26,7 +25,6 @@ class Lab(Base):
     descricao = Column(String)
     id_responsavel = Column(Integer, ForeignKey("usuarios.id"))
 
-    aulas = relationship("Marcacoes", back_populates="labs")
 
 
 class Marcacoes(Base):
@@ -39,5 +37,3 @@ class Marcacoes(Base):
     descricao = Column(String, nullable=True)
     data_inicio = Column(DateTime, nullable=False)
     data_final = Column(DateTime)
-
-    labs = relationship("Lab", back_populates="aulas")
